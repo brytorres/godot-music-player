@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/audio/music/Music.gd" type="Script" id=1]
+
+[node name="Music" type="Node"]
+script = ExtResource( 1 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -16.155
+
+[node name="FadeOut" type="Tween" parent="."]
+
+[node name="FadeIn" type="Tween" parent="."]
+
+[node name="PlayTime" type="Timer" parent="."]
+
+[connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]
+[connection signal="timeout" from="PlayTime" to="." method="_on_PlayTime_timeout"]
