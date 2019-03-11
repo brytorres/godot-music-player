@@ -7,6 +7,7 @@ Included in this repo are 5 audio files for testing, the scenes needed, and a sc
 The Audio scene should be included in your main game scene so that it plays throughout the entire game. Heres a layout of the scene structure:
 ```
 Game
+└───...
 └───Audio (Node)
 │   └───Music (Node) [Music.gd]
 │       │   MusicPlayer (AudioStreamPlayer)
@@ -46,9 +47,10 @@ export var max_volume = -15
 export var transition_type = 0 # Linear 
 ```
 
-You must make sure that the songs and in an assets folder and that the correct path is setup in the scripts `set_audio_stream()` method.
+You must make sure that the songs are in an assets folder and that the correct path is setup in the scripts `set_audio_stream()` method.
 ```
 func set_audio_stream(song):
+    # SET FILE PATH BELOW
 	audiostream = load('res://assets/audio/music/' + songs[song] + '.wav')
 	get_node("MusicPlayer").set_stream(audiostream)
 ```
